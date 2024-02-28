@@ -1,4 +1,24 @@
-
+<?php
+//PDO
+$createSuccess = $createFailed = "";
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+    if (isset($_POST["submit"])){
+        $serverName = "localhost";
+        $userName = "root";
+        $password = "";
+        $dbName = "solidatabase";
+        try {
+            $conn = new PDO("mysql:host=$serverName", $userName, $password);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $crea = "CREATE DATABASE $dbName ";
+            $conn -> exec($crea);
+            $createSuccess = "Database Created successfully with name $dbName";
+        } catch(PDOException $e) {
+            $createFailed = "Error creating database" . $e ->getMessage();
+        }
+    }
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,41 +66,13 @@
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
             <button class="submit" type="submit" name="submit">Create database</button>
             <p id="connsuccess">
-                <?php echo $creatSuccess?>
+                <?php echo $createSuccess?>
             </p>
             <p id="connfailed">
-                <?php echo $creatFailed?>
-            </p>
-            <p id="dbexist">
-                <?php echo $exist?>
+                <?php echo $createFailed?>
             </p>
         </form>
     </div>
-    
-<?php
-//PDO
 
-$creatSuccess = $creatFailed = $exist = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST"){
-    if (isset($_POST["submit"])){
-        $serverName = "localhost";
-        $userName = "root";
-        $password = "";
-        $dbName = "solidatabase";
-
-        try {
-            $conn = new PDO("mysql:host=$serverName", $userName, $password);
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $crea = "CREATE DATABASE $dbName ";
-            $conn -> exec($crea);
-            $creatSuccess = "Database Created successfully with name $dbName";
-        } catch(PDOException $e) {
-            $createFailed = "Error creating database" . $e->getMessage();
-        }
-    }
-}
-?>
 </body>
-
 </html>
