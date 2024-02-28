@@ -1,23 +1,18 @@
 <?php
 //PDO
-
 $connectSuccess = $connectFailed = "";
-
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     if (isset($_POST["submit"])){
         $serverName = "localhost";
         $userName = "root";
         $password = "";
         $dbName = "solidb";
-
         try {
             $conn = new PDO("mysql:host=$serverName;dbname=$dbName", $userName, $password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $connectSuccess = "Connected successfully";
-            //echo '<p style="color:green">Connected successfully</p>';
         } catch(PDOException $e) {
-            $connectFailed = "Connection failed" . $e->getMessage();
-            //echo '<p style="color:red">Connection failed</p>';
+            $connectFailed = "Connection failed" . $e ->getMessage();
         }
     }
 }
@@ -25,7 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,7 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             box-shadow: 2px 2px 4px;
             padding: 20px;
         }
-
         .submit {
             font-size: 15px;
             background-color: #B6D7A8;
@@ -50,11 +43,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             border: none;
             padding: 20px 24px;
         }
-
         #connsuccess {
             color: green;
         }
-
         #connfailed {
             color: green;
         }
@@ -75,5 +66,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         </form>
     </div>
 </body>
-
 </html>
