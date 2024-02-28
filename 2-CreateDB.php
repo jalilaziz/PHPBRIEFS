@@ -75,8 +75,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             $crea = "CREATE DATABASE $dbName ";
             $conn -> exec($crea);
             $creatSuccess = "Database Created successfully with name $dbName";
-        } catch(PDOException) {
-            $createFailed = "Error creating database";
+        } catch(PDOException $e) {
+            $createFailed = "Error creating database" . $e->getMessage();
         }
     }
 }
