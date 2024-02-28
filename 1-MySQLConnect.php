@@ -15,8 +15,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $connectSuccess = "Connected successfully";
             //echo '<p style="color:green">Connected successfully</p>';
-        } catch(PDOException) {
-            $connectFailed = "Connection failed";
+        } catch(PDOException $e) {
+            $connectFailed = "Connection failed" . $e->getMessage();
             //echo '<p style="color:red">Connection failed</p>';
         }
     }
