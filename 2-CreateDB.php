@@ -7,6 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $userName = "root";
         $password = "";
         $dbName = "solidatabase";
+
         try {
             $conn = new PDO("mysql:host=$serverName", $userName, $password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -39,7 +40,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             box-shadow: 2px 2px 4px;
             padding: 20px;
         }
-
         .submit {
             font-size: 15px;
             background-color: #B6D7A8;
@@ -47,19 +47,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             border: none;
             padding: 20px 24px;
         }
-
         #connsuccess {
             color: green;
             /* font-size: 20px; */
         }
-
         #connfailed {
             color: green;
             /* font-size: 20px; */
         }
     </style>
 </head>
-
 <body>
     <div class="container">
         <h1>PHP Create a MySQL DATABASE</h1>
@@ -73,6 +70,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             </p>
         </form>
     </div>
-
 </body>
 </html>
