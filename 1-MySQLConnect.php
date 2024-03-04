@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $serverName = "localhost";
         $userName = "root";
         $password = "";
-        $dbName = "solidb";
+        $dbName = "solidatabase";
         try {
             $conn = new PDO("mysql:host=$serverName;dbname=$dbName", $userName, $password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -20,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,10 +44,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             border: none;
             padding: 20px 24px;
         }
-        #connsuccess {
+        #success {
             color: green;
         }
-        #connfailed {
+        #failed {
             color: green;
         }
     </style>
@@ -57,13 +58,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         <h1>PHP Connect to MySQL DATABASE</h1>
         <form class="formsubmit" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
             <button class="submit" type="submit" name="submit">Connect to database</button>
-            <p id="connsuccess">
+            <p id="success">
                 <?php echo $connectSuccess?>
             </p>
-            <p id="connfailed">
+            <p id="failed">
                 <?php echo $connectFailed?>
             </p>
         </form>
     </div>
+
 </body>
 </html>
