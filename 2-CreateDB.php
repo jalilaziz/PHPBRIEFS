@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $crea = "CREATE DATABASE $dbName ";
             $conn -> exec($crea);
-            $createSuccess = "Database Created successfully with name $dbName";
+            $createSuccess = "Database $dbName Created successfully.";
         } catch(PDOException $e) {
             $createFailed = "Error creating database" . $e ->getMessage();
         }
@@ -47,28 +47,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             border: none;
             padding: 20px 24px;
         }
-        #connsuccess {
+        #success {
             color: green;
             /* font-size: 20px; */
         }
-        #connfailed {
+        #failed {
             color: green;
             /* font-size: 20px; */
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>PHP Create a MySQL DATABASE</h1>
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
             <button class="submit" type="submit" name="submit">Create database</button>
-            <p id="connsuccess">
+            <p id="success">
                 <?php echo $createSuccess?>
             </p>
-            <p id="connfailed">
+            <p id="failed">
                 <?php echo $createFailed?>
             </p>
         </form>
     </div>
+
 </body>
 </html>
