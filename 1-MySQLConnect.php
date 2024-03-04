@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $serverName = "localhost";
         $userName = "root";
         $password = "";
-        $dbName = "solidatabase";
+        $dbName = "test";
         try {
             $conn = new PDO("mysql:host=$serverName;dbname=$dbName", $userName, $password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -58,12 +58,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         <h1>PHP Connect to MySQL DATABASE</h1>
         <form class="formsubmit" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
             <button class="submit" type="submit" name="submit">Connect to database</button>
-            <p id="success">
-                <?php echo $connectSuccess?>
-            </p>
-            <p id="failed">
-                <?php echo $connectFailed?>
-            </p>
+            <p id="success"><?php echo $connectSuccess?></p>
+            <p id="failed"><?php echo $connectFailed?></p>
         </form>
     </div>
 
