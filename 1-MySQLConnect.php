@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             color: green;
         }
         #failed {
-            color: green;
+            color: red;
         }
     </style>
 </head>
