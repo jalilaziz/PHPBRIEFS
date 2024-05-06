@@ -1,0 +1,102 @@
+*{
+    /* padding: 0;
+    margin: 0; */
+    box-sizing: border-box;
+}
+
+body{
+    position: relative;
+    display: flex;
+    /* align-items: center;
+    justify-content: center; */
+    min-height: 100vh;
+}
+
+h2 {
+    padding: 0;
+    margin: 0;
+}
+.container {
+    width: 600px;
+    border: 1px solid;
+    height: fit-content;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.card {
+    display: flex;
+    position: relative;
+    background-color: antiquewhite;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.backbtn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: cadetblue;
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+}
+
+.textinput {
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 8px;
+    width: 90%;
+    margin: auto;
+}
+
+.savebtn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: cadetblue;
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.table {
+    width: 95%;
+    border-collapse: collapse;
+
+}
+
+th {
+    width: 20vw;
+    border: 1px solid;
+    border-collapse: collapse;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+td {
+    border: 1px solid;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.edit, .delete {
+    padding: 3px 8px;
+    border-radius: 5px;
+    border: 1px solid;
+}
+.aedit, .adelete {
+    text-decoration: none;
+    color: white;
+}
+
+.edit {
+    background-color: green;
+}
+
+.delete {
+    background-color: red;
+}
