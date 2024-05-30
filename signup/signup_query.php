@@ -3,7 +3,7 @@ session_start();
 require_once 'conn.php';
 
 $nbrErr =0;
-$emailExist = $emptyFields = "";
+$emailExist = $emptyFields = $errorPassword = $errorRepeat = "";
 
 function validate($data){
     $data = trim($data);
@@ -23,19 +23,19 @@ if(isset($_POST['signup'])){
 
         $password = md5(validate($_POST['password']));
     
-        // validate password
+            //validate password
         if(strlen($password) < 4){
             $nbrErr++;
-            echo "Password must be longer than 8 characters";
+            $errorPassword = "Password must be longer than 8 characters";
 
-        }else if($password !=  $repeat_password){
+        }else if($password != $repeat_password){
             $nbrErr++;
-            echo "Passwords do not match";
+            $errorRepeat = "Passwords do not match";
 
         }else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             //validate email
             $nbrErr++;
-            echo "Invalid email format";
+            $InvalidEmail = "Invalid email format";
 
         }else{
             try{
